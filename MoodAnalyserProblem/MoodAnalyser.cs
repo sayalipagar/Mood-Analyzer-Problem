@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace MoodAnalyserProblem
 {
-    internal class MoodAnalyser
+    public class MoodAnalyser
     {
-        public void Analyser(string message)
+        public string Analyser(string message)
         {
             if (message.Contains("Sad"))
-                Console.WriteLine("SAD MOOD");
+                return "SAD";
             else
-                Console.WriteLine("HAPPY MOOD");
+                return "HAPPY";
         }
     }
 }
