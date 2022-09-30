@@ -2,7 +2,7 @@ using MoodAnalyserProblem;
 
 namespace MoodAnalyserTest
 {
-        [TestClass]
+    [TestClass]
         public class MoodAnalyserTest
         {
             [TestMethod]
@@ -17,6 +17,14 @@ namespace MoodAnalyserTest
             public void GivenIAmInHappyMessageInConstructor_ShouldReturnHappy()
             {
                 string message = "I am in Happy Mood";
+                MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+                string actual = moodAnalyser.Analyser();
+                Assert.AreEqual(actual, "HAPPY");
+            }
+            [TestMethod]
+            public void GivenNullMessage_ShouldReturnHappy()
+            {
+                string message = "null";
                 MoodAnalyser moodAnalyser = new MoodAnalyser(message);
                 string actual = moodAnalyser.Analyser();
                 Assert.AreEqual(actual, "HAPPY");

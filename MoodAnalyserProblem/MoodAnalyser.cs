@@ -17,14 +17,14 @@ namespace MoodAnalyserProblem
         {
             try
             {
-                if (message.Contains("Sad"))
+                if (this.message.Contains("Sad"))
                     return "SAD";
                 else
                     return "HAPPY";
             }
             catch (NullReferenceException ex)
             {
-                return ex.Message;
+                return "Happy";
             }
         }
     }
