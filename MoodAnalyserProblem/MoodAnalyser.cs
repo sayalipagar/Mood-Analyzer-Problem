@@ -9,22 +9,30 @@ namespace MoodAnalyserProblem
     public class MoodAnalyser
     {
         string message;
-        public MoodAnalyser(string msg)
+        public MoodAnalyser()
         {
-            this.message = msg;
+
+        }
+        public MoodAnalyser(string message)
+        {
+            this.message = message;
         }
         public string Analyser()
         {
-            if (message == string.Empty)
-            {
-                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.EMPTY_MOOD, "Message is Empty");
-            }
             try
             {
-                if (message.Contains("SAD"))
+                if (string.IsNullOrEmpty(message))
+                {
+                    throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.EMPTY_MOOD, "Message is Empty");
+                }
+                if (message.Contains("Sad"))
+                {
                     return "SAD";
+                }
                 else
+                {
                     return "HAPPY";
+                }
             }
             catch (MoodAnalysisException)
             {
@@ -32,4 +40,5 @@ namespace MoodAnalyserProblem
             }
         }
     }
-    }
+
+}
