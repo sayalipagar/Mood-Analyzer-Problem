@@ -57,6 +57,48 @@ namespace MoodAnalyserTest
                 Assert.AreEqual(ex.Message, "Message is Empty");
             }
         }
+        //TC 4.1- Given MoodAnalyser Class Name Should Return MoodAnalyser Object 
+
+        [TestMethod]
+        public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject()
+        {
+            string message = null;
+            object actual = new MoodAnalyser();
+            object obj = MoodAnalyserFactory.CreateMoodAnalyse("MoodAnalyzerProblemStatement.MoodAnalyser", "MoodAnalyser");
+            actual.Equals(obj);
+        }
+        //TC 4.2- Given Class Name When Improper Should Throw MoodAnalysisException
+
+        [TestMethod]
+        public void GivenImproperClassName_ShouldThrowMoodAnalysisException()
+        {
+            string actual = "Class Not Found";
+            try
+            {
+                object moodAnalyseObject = MoodAnalyserFactory.CreateMoodAnalyse("MoodAnalyzerProblemStatement.MoodAnalyser", "MoodAnalyser");
+
+            }
+            catch (MoodAnalysisException exception)
+            {
+                Assert.AreEqual(actual, exception.Message);
+            }
+        }
+
+        //TC 4.3  Given Improper Constructor should throw MoodAnalysisException
+
+        [TestMethod]
+        public void GivenImproperConstructor_ShouldThrowMoodAnalysisException()
+        {
+            string actual = "Class Not Found";
+            try
+            {
+                object moodAnalyseObject = MoodAnalyserFactory.CreateMoodAnalyse("MoodAnalyzerProblemStatement.MoodAnalyser", "MoodAnalyser");
+            }
+            catch (MoodAnalysisException exception)
+            {
+                Assert.AreEqual(actual, exception.Message);
+            }
+        }
     }
 }
         

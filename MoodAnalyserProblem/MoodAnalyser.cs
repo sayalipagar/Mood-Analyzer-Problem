@@ -19,12 +19,12 @@ namespace MoodAnalyserProblem
         }
         public string Analyser()
         {
+            if (string.IsNullOrEmpty(message))
+            {
+                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.EMPTY_MOOD, "Message is Empty");
+            }
             try
             {
-                if (string.IsNullOrEmpty(message))
-                {
-                    throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.EMPTY_MOOD, "Message is Empty");
-                }
                 if (message.Contains("Sad"))
                 {
                     return "SAD";
